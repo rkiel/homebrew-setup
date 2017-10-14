@@ -1,5 +1,3 @@
-# Updates
-
 ## Login as Admin
 
 #### macOS
