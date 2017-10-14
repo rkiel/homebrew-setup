@@ -1,4 +1,3 @@
-Homebrew
 # Updates
 
 ## Login as Admin
@@ -56,6 +55,45 @@ brew doctor
 brew postinstall node
 ```
 
+
+## Login as User
+
+#### macOS
+
+```bash
+cd ~/GitHub/rkiel/osx-setup
+git pull
+```
+
+#### Atom
+
+```bash
+cd ~/GitHub/rkiel/atom-setup
+git pull
+```
+
+[Perform upgrades](https://github.com/rkiel/atom-setup)
+
+#### Vim
+
+```bash
+cd ~/GitHub/rkiel/vim-setup
+git pull
+```
+
+#### Git
+
+```bash
+cd ~/GitHub/rkiel/git-utilities
+git pull
+```
+
+#### Node
+
+```bash
+cd ~/GitHub/rkiel/node-utilities
+git pull
+```
 
 
 
