@@ -56,13 +56,6 @@ brew postinstall node
 
 ## Login as User
 
-#### macOS
-
-```bash
-cd ~/GitHub/rkiel/osx-setup
-git pull
-```
-
 #### Atom
 
 ```bash
@@ -93,5 +86,11 @@ cd ~/GitHub/rkiel/node-utilities
 git pull
 ```
 
+#### macOS
+
+```bash
+cd ~/GitHub/rkiel/osx-setup
+git pull
+```
 
 
