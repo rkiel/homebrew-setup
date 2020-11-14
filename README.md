@@ -1,97 +1,36 @@
-## Login as Admin
-* test
-
-#### macOS
-
-Apple -> About this Mac -> Software Update -> Update All
-Reboot
-
-#### Chrome
-
-Chrome -> About Google Chrome
-
-#### Atom
-
-Atom -> About Atom -> Restart and Install
-
-#### Homebrew
-
-[from their FAQ](https://docs.brew.sh/FAQ.html)
-
-First update the formulae and Homebrew itself:
-
 ```bash
-brew --version
-brew update
-brew --version
+echo && read -p "enter GitHub EMAIL ADDRESS: " GITHUB_EMAIL
+
+GITHUB_KEY=github_id_rsa
+echo $GITHUB_KEY $GITHUB_EMAIL
+ssh-keygen -f ~/.ssh/$GITHUB_KEY -m PEM -t rsa -b 4096 -C $GITHUB_EMAIL
+
+openssl rsa -noout -text -in ~/.ssh/$GITHUB_KEY
+
+ssh-add -K ~/.ssh/$GITHUB_KEY
+
+echo                                          >> ~/.ssh/config
+echo 'Host github.com'                        >> ~/.ssh/config
+echo '  HostName github.com'                  >> ~/.ssh/config
+echo "  IdentityFile ~/.ssh/$GITHUB_KEY"      >> ~/.ssh/config
+chmod 600 ~/.ssh/config
+
+echo && read -p "enter default EMAIL ADDRESS: " DEFAULT_EMAIL
+
+DEFAULT_KEY=default_id_rsa
+echo $DEFAULT_KEY $DEFAULT_EMAIL
+ssh-keygen -f ~/.ssh/$DEFAULT_KEY -m PEM -t rsa -b 4096 -C $DEFAULT_EMAIL
+
+openssl rsa -noout -text -in ~/.ssh/$DEFAULT_KEY
+
+ssh-add -K ~/.ssh/$DEFAULT_KEY
+
+echo                                          >> ~/.ssh/config
+echo 'Host *'                                 >> ~/.ssh/config
+echo '  IgnoreUnknown UseKeychain'            >> ~/.ssh/config
+echo '  UseKeychain yes'                      >> ~/.ssh/config
+echo '  AddKeysToAgent yes'                   >> ~/.ssh/config
+echo '  PreferredAuthentications publickey'   >> ~/.ssh/config
+echo "  IdentityFile ~/.ssh/$DEFAULT_KEY"     >> ~/.ssh/config
+chmod 600 ~/.ssh/config
 ```
-
-You can now find out what is outdated with:
-
-```bash
-brew outdated
-```
-
-Upgrade everything with:
-
-```bash
-brew upgrade
-```
-
-Or upgrade a specific formula with:
-
-```bash
-brew upgrade <formula>
-```
-
-Dealing with node
-
-```bash
-brew uninstall node
-brew install node
-brew link node
-brew doctor
-brew postinstall node
-```
-
-
-## Login as User
-
-#### Atom
-
-```bash
-cd ~/GitHub/rkiel/atom-setup
-git pull
-```
-
-[Perform upgrades](https://github.com/rkiel/atom-setup)
-
-#### Vim
-
-```bash
-cd ~/GitHub/rkiel/vim-setup
-git pull
-```
-
-#### Git
-
-```bash
-cd ~/GitHub/rkiel/git-utilities
-git pull
-```
-
-#### Node
-
-```bash
-cd ~/GitHub/rkiel/node-utilities
-git pull
-```
-
-#### macOS
-
-```bash
-cd ~/GitHub/rkiel/osx-setup
-git pull
-```
-
-
