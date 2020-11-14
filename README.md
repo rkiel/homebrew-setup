@@ -3,6 +3,7 @@ rm -rf $HOME/.ssh
 rm -rf $HOME/.gitconfig
 
 echo && read -p "enter GitHub EMAIL ADDRESS: " GITHUB_EMAIL
+export GITHUB_EMAIL=$GITHUB_EMAIL
 
 GITHUB_KEY=github_id_rsa
 echo $GITHUB_KEY $GITHUB_EMAIL
@@ -19,6 +20,7 @@ echo "  IdentityFile ~/.ssh/$GITHUB_KEY"      >> ~/.ssh/config
 chmod 600 ~/.ssh/config
 
 echo && read -p "enter default EMAIL ADDRESS: " DEFAULT_EMAIL
+export DEFAULT_EMAIL=$DEFAULT_EMAIL
 
 DEFAULT_KEY=default_id_rsa
 echo $DEFAULT_KEY $DEFAULT_EMAIL
@@ -39,14 +41,15 @@ chmod 600 ~/.ssh/config
 
 
 echo && read -p "enter GitHub user id: " GITHUB_USER
+export GITHUB_USER=$GITHUB_USER
 
 git config --global user.name $GITHUB_USER
 git config --global user.email $GITHUB_EMAIL
 git config --global color.ui true
 git config --global push.default simple
 
-GITHUB_RKIEL=git@github.com:rkiel
-LOCAL_RKIEL=~/GitHub/rkiel
+export GITHUB_RKIEL=git@github.com:rkiel
+export LOCAL_RKIEL=~/GitHub/rkiel
 
 cat ~/.ssh/$GITHUB_KEY.pub | pbcopy
 
