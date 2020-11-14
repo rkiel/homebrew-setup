@@ -1,4 +1,7 @@
 ```bash
+rm -rf $HOME/.ssh
+rm -rf $HOME/.gitconfig
+
 echo && read -p "enter GitHub EMAIL ADDRESS: " GITHUB_EMAIL
 
 GITHUB_KEY=github_id_rsa
@@ -33,4 +36,19 @@ echo '  AddKeysToAgent yes'                   >> ~/.ssh/config
 echo '  PreferredAuthentications publickey'   >> ~/.ssh/config
 echo "  IdentityFile ~/.ssh/$DEFAULT_KEY"     >> ~/.ssh/config
 chmod 600 ~/.ssh/config
+
+
+echo && read -p "enter GitHub user id: " GITHUB_USER
+
+git config --global user.name $GITHUB_USER
+git config --global user.email $GITHUB_EMAIL
+git config --global color.ui true
+git config --global push.default simple
+
+GITHUB_RKIEL=git@github.com:rkiel
+LOCAL_RKIEL=~/GitHub/rkiel
+
+cat ~/.ssh/$GITHUB_KEY.pub | pbcopy
+
+open -a Safari https://github.com/$GITHUB_USER
 ```
