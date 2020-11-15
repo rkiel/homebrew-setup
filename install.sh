@@ -5,22 +5,27 @@ cd /Users/Shared
 rm -rf images-starter
 git clone $GITHUB_RKIEL/images-starter.git
 
-VendorDMG="googlechrome.dmg"
+ls -l ~/Downloads
+echo && read -p "enter Google Chrome DMG: " VendorDMG
+# VendorDMG="googlechrome.dmg"
+APPLICATION="Google Chrome"
 hdiutil attach ~/Downloads/"$VendorDMG"  -nobrowse
-CHROME="Google Chrome"
-cp -pPR  /Volumes/"$CHROME"/"$CHROME".app /Applications/
-GoogleChromeDMG="$(hdiutil info | grep "/Volumes/$CHROME" | awk '{ print $1 }')"
-hdiutil detach $GoogleChromeDMG
+cp -pPR  /Volumes/"$APPLICATION"/"$APPLICATION".app /Applications/
+ApplicationDMG="$(hdiutil info | grep "/Volumes/$APPLICATION" | awk '{ print $1 }')"
+hdiutil detach $ApplicationDMG
 rm -rf ~/Downloads/"$VendorDMG"
 
-cd ~/Downloads && VendorDMG=`ls Firefox*.dmg`
+ls -l ~/Downloads
+echo && read -p "enter Firefox DMG: " VendorDMG
+#cd ~/Downloads && VendorDMG=`ls Firefox*.dmg`
+APPLICATION="Firefox"
 hdiutil attach ~/Downloads/"$VendorDMG"  -nobrowse
-cp -pPR  /Volumes/Firefox/Firefox.app /Applications/
-FirefoxDMG="$(hdiutil info | grep /Volumes/Firefox | awk '{ print $1 }')"
-hdiutil detach $FirefoxDMG
+cp -pPR  /Volumes/"$APPLICATION"/"$APPLICATION".app /Applications/
+ApplicationDMG="$(hdiutil info | grep "/Volumes/$APPLICATION" | awk '{ print $1 }')"
+hdiutil detach $ApplicationDMG
 rm -rf ~/Downloads/"$VendorDMG"
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 echo               > /tmp/rvm
 echo "##########" >> /tmp/rvm
@@ -28,7 +33,7 @@ echo "# RVM"      >> /tmp/rvm
 echo "##########" >> /tmp/rvm
 cat /tmp/rvm      >> ~/.bash_profile
 cat /tmp/rvm      >> ~/.bashrc
-\curl -sSL https://get.rvm.io | bash -s stable --autolibs=enable
+\curl -sSL https://get.rvm.io | /bin/zsh -s stable --autolibs=enable
 source ~/.bashrc
 RUBY_CURRENT=2.7
 RUBY_PREVIOUS=2.6
