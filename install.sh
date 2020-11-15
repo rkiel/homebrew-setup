@@ -1,4 +1,4 @@
-export GITHUB_RKIEL=git@github.com:rkiel
+export GITHUB_RKIEL="git@github.com:rkiel"
 export LOCAL_RKIEL=~/GitHub/rkiel
 
 cd /Users/Shared
@@ -90,10 +90,11 @@ cd $LOCAL_RKIEL/aws-utilities
 source ~/.bash_profile
 awssu
 
-mkdir -p $LOCAL_RKIEL && cd $_
-rm -rf bash-utilities
-git clone ${GITHUB_RKIEL}/bash-utilities.git
-cd $LOCAL_RKIEL/bash-utilities
+REPO="zsh-utilities"
+mkdir -p ${LOCAL_RKIEL} && cd $_
+rm -rf $REPO
+git clone ${GITHUB_RKIEL}/${REPO}.git
+cd ${LOCAL_RKIEL}/${REPO}
 ./install/bin/setup
 
 echo && read -p "enter FEATURE_USER: " FEATURE_USER
