@@ -2,49 +2,31 @@
 
 Download and install Chrome.
 
-- Command + Space + **Terminal**
-
-```bash
-open -a Safari http://www.google.com/chrome/
-```
-
-- Click **Download Chrome for Mac**
+[Google Chrome](http://www.google.com/chrome/)
 
 ### Firefox
 
 Download and install Firefox.
 
-- Command + Space + **Terminal**
-
-```bash
-open -a Safari https://www.mozilla.org/en-US/firefox/
-```
-
-- Click **Download Firefox**
+[Firefox](https://www.mozilla.org/en-US/firefox/)
 
 ### Atom
 
-Command + Space + **Terminal**
-
-```bash
-open -a Safari https://atom.io/
-```
-
-- Click **Download**
+[Atom](https://atom.io/)
 
 ### Visual Studio Code
 
-Command + Space + **Terminal**
+[Visual Studio Code](https://code.visualstudio.com/)
 
-```bash
-open -a Safari https://code.visualstudio.com/
-```
+### Setup
 
 ```bash
 git clone https://github.com/rkiel/macos-updates.git
 cd macos-updates
 ./setup.sh
 ```
+
+### Install
 
 ```bash
 ./install.sh
