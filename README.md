@@ -18,11 +18,22 @@ Download and install Firefox.
 
 [Visual Studio Code](https://code.visualstudio.com/)
 
-### Setup
+### Install Xcode
+
+```bash
+xcode-select --install
+```
+
+### Download
 
 ```bash
 git clone https://github.com/rkiel/macos-updates.git
 cd macos-updates
+```
+
+### Setup
+
+```bash
 ./setup.sh
 ```
 
