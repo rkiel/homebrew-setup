@@ -59,7 +59,7 @@ mkdir -p $LOCAL_RKIEL && cd $_
 rm -rf node-utilities
 git clone ${GITHUB_RKIEL}/node-utilities.git
 cd $LOCAL_RKIEL/node-utilities
-./install/bin/setup
+./install/bin/setup zsh
 
 brew install pyenv
 echo                                        > /tmp/python
