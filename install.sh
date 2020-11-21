@@ -20,23 +20,25 @@ git clone $GITHUB_RKIEL/images-starter.git
 
 ls -l ~/Downloads
 echo && read -p "enter Google Chrome DMG: " VendorDMG
-# VendorDMG="googlechrome.dmg"
+if [ ! -z "${VendorDMG}" ] ; then
 APPLICATION="Google Chrome"
 hdiutil attach ~/Downloads/"$VendorDMG"  -nobrowse
 cp -pPR  /Volumes/"$APPLICATION"/"$APPLICATION".app /Applications/
 ApplicationDMG="$(hdiutil info | grep "/Volumes/$APPLICATION" | awk '{ print $1 }')"
 hdiutil detach $ApplicationDMG
 rm -rf ~/Downloads/"$VendorDMG"
+fi
 
 ls -l ~/Downloads
 echo && read -p "enter Firefox DMG: " VendorDMG
-#cd ~/Downloads && VendorDMG=`ls Firefox*.dmg`
+if [ ! -z "${VendorDMG}" ] ; then
 APPLICATION="Firefox"
 hdiutil attach ~/Downloads/"$VendorDMG"  -nobrowse
 cp -pPR  /Volumes/"$APPLICATION"/"$APPLICATION".app /Applications/
 ApplicationDMG="$(hdiutil info | grep "/Volumes/$APPLICATION" | awk '{ print $1 }')"
 hdiutil detach $ApplicationDMG
 rm -rf ~/Downloads/"$VendorDMG"
+fi
 
 ${MY_BASH} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 

@@ -62,6 +62,7 @@ echo
 echo "*********************************"
 echo "ACTION REQUIRED: paste public key"
 echo "*********************************"
+echo
 echo Login to your GitHub account
 echo Under Account "=>" Settings
 echo click on SSH and GPG keys
