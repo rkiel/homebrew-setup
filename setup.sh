@@ -47,11 +47,16 @@ echo Saving GitHub public key to paste buffer
 cat ~/.ssh/$GITHUB_KEY.pub | pbcopy
 
 echo
+echo "****************************"
+echo "ACTION REQUIRED:"
+echo "****************************"
 echo Login to your GitHub account
 echo Under Account "=>" Settings
-echo SSH and GPG keys
+echo click on SSH and GPG keys
 echo click New SSH key
 echo paste in public key
+echo
+echo Use the following command to get started:
 echo
 echo open -a Safari https://github.com/$GITHUB_USER
 echo
