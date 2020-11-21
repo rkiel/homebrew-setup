@@ -1,6 +1,8 @@
 export GITHUB_RKIEL="git@github.com:rkiel"
 export LOCAL_RKIEL=~/GitHub/rkiel
 
+echo && read -p "enter SHELL: " MY_SHELL
+
 cd /Users/Shared
 rm -rf images-starter
 git clone $GITHUB_RKIEL/images-starter.git
@@ -55,11 +57,12 @@ echo && read -p "enter Node (previous version): " NODE_PREVIOUS
 nvm install $NODE_CURRENT
 nvm install $NODE_PREVIOUS
 nvm alias default $NODE_PREVIOUS
-mkdir -p $LOCAL_RKIEL && cd $_
-rm -rf node-utilities
-git clone ${GITHUB_RKIEL}/node-utilities.git
-cd $LOCAL_RKIEL/node-utilities
-./install/bin/setup zsh
+REPO="node-utilities"
+mkdir -p ${LOCAL_RKIEL} && cd $_
+rm -rf ${REPO}
+git clone ${GITHUB_RKIEL}/${REPO}.git
+cd ${LOCAL_RKIEL}/${REPO}
+./install/bin/setup ${MY_SHELL}
 
 brew install pyenv
 echo                                        > /tmp/python
@@ -82,27 +85,20 @@ pip3 install awscli --upgrade --user
 echo 'export PATH=~/.local/bin:$PATH' >> ~/.bash_profile
 source ~/.bash_profile
 aws --version
-mkdir -p $LOCAL_RKIEL && cd $_
-rm -rf aws-utilities
-git clone ${GITHUB_RKIEL}/aws-utilities.git
-cd $LOCAL_RKIEL/aws-utilities
-./install/bin/setup
-source ~/.bash_profile
-awssu
-
-REPO="zsh-utilities"
+REPO="aws-utilities"
 mkdir -p ${LOCAL_RKIEL} && cd $_
-rm -rf $REPO
+rm -rf ${REPO}
 git clone ${GITHUB_RKIEL}/${REPO}.git
 cd ${LOCAL_RKIEL}/${REPO}
-./install/bin/setup
+./install/bin/setup ${MY_SHELL}
 
 echo && read -p "enter FEATURE_USER: " FEATURE_USER
-mkdir -p $LOCAL_RKIEL && cd $_
-rm -rf git-utilities
-git clone ${GITHUB_RKIEL}/git-utilities.git
-cd $LOCAL_RKIEL/git-utilities
-./install/bin/setup --user $FEATURE_USER
+REPO="git-utilities"
+mkdir -p ${LOCAL_RKIEL} && cd $_
+rm -rf ${REPO}
+git clone ${GITHUB_RKIEL}/${REPO}.git
+cd ${LOCAL_RKIEL}/${REPO}
+./install/bin/setup ${FEATURE_USER} ${MY_SHELL}
 
 mkdir -p $LOCAL_RKIEL && cd $_
 rm -rf vim-setup
