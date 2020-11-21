@@ -109,11 +109,12 @@ git clone ${GITHUB_RKIEL}/${REPO}.git
 cd ${LOCAL_RKIEL}/${REPO}
 ./install/bin/setup ${FEATURE_USER} ${MY_SHELL}
 
+REPO="vim-setup"
 mkdir -p $LOCAL_RKIEL && cd $_
-rm -rf vim-setup
-git clone ${GITHUB_RKIEL}/vim-setup.git
-cd $LOCAL_RKIEL/vim-setup
-./install/bin/setup
+rm -rf ${REPO}
+git clone ${GITHUB_RKIEL}/${REPO}.git
+cd ${LOCAL_RKIEL}/${REPO}
+./install/bin/setup ${MY_SHELL}
 
 cd ~/Downloads && unzip atom-mac.zip
 mv ~/Downloads/Atom.app /Applications
