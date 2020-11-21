@@ -47,17 +47,24 @@ git config --global push.default simple
 # cat ~/.ssh/$GITHUB_KEY.pub | pbcopy
 
 echo
-echo "****************************"
-echo "ACTION REQUIRED:"
-echo "****************************"
+echo "********************************"
+echo "ACTION REQUIRED: login to GitHub"
+echo "********************************"
+echo
+echo open -a Safari https://github.com/$GITHUB_USER
+echo
+echo "********************************"
+echo "ACTION REQUIRED: copy public key"
+echo "********************************"
+echo
+echo cat ~/.ssh/$GITHUB_KEY.pub "|" pbcopy
+echo
+echo "*********************************"
+echo "ACTION REQUIRED: paste public key"
+echo "*********************************"
 echo Login to your GitHub account
 echo Under Account "=>" Settings
 echo click on SSH and GPG keys
 echo click New SSH key
 echo paste in public key
 echo
-echo Use the following commands to get started:
-echo
-echo open -a Safari https://github.com/$GITHUB_USER
-echo
-echo cat ~/.ssh/$GITHUB_KEY.pub "|" pbcopy
