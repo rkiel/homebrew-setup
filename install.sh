@@ -6,10 +6,12 @@ if [ "${MY_SHELL}" == "zsh" ] ; then
   MY_PROFILE=~/.zprofile
   MY_RC=~/.zshrc
   MY_BIN=/bin/zsh
+  MY_BASH=/bin/bash
 else
   MY_PROFILE=~/.bash_profile
   MY_RC=~/.bashrc
   MY_BIN=/bin/bash
+  MY_BASH=/bin/bash
 fi
 
 cd /Users/Shared
@@ -36,7 +38,7 @@ ApplicationDMG="$(hdiutil info | grep "/Volumes/$APPLICATION" | awk '{ print $1 
 hdiutil detach $ApplicationDMG
 rm -rf ~/Downloads/"$VendorDMG"
 
-${MY_BIN} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+${MY_BASH} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 echo               > /tmp/rvm
 echo "##########" >> /tmp/rvm
