@@ -123,29 +123,22 @@ sudo mkdir -p bin
 cd /usr/local/bin
 sudo ln -nfs /Applications/Atom.app/Contents/Resources/app/atom.sh atom
 sudo ln -nfs /Applications/Atom.app/Contents/Resources/app/apm/node_modules/.bin/apm apm
+REPO="atom-setup"
 mkdir -p $LOCAL_RKIEL && cd $_
-rm -rf atom-setup
-git clone ${GITHUB_RKIEL}/atom-setup.git
-cd ~/GitHub/rkiel/atom-setup
-./install/bin/setup --install
+rm -rf ${REPO}
+git clone ${GITHUB_RKIEL}/${REPO}.git
+cd ${LOCAL_RKIEL}/${REPO}
+./install/bin/setup install
 
 cd ~/Downloads && unzip VSCode-darwin-stable.zip
 VSCODE="Visual Studio Code"
 mv ~/Downloads/"$VSCODE".app /Applications
+REPO="vscode-setup"
 mkdir -p $LOCAL_RKIEL && cd $_
-rm -rf vscode-setup
-git clone ${GITHUB_RKIEL}/vscode-setup.git
-cd vscode-setup
-echo "source $LOCAL_RKIEL/vscode-setup/vs-code.bash" >> ${MY_PROFILE}
-source ${MY_PROFILE}
-code --install-extension esbenp.prettier-vscode
-code --install-extension vscodevim.vim
-code --install-extension vscode-icons-team.vscode-icons
-code --install-extension dbaeumer.vscode-eslint
-mkdir -p ~/Library/'Application Support'/Code/User && pushd "$_"
-ln -nfs $LOCAL_RKIEL/vscode-setup/settings.json .
-popd
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+rm -rf ${REPO}
+git clone ${GITHUB_RKIEL}/${REPO}.git
+cd ${LOCAL_RKIEL}/${REPO}
+./install/bin/setup ${MY_SHELL}
 
 echo && read -p "enter AWS account id/name: " MY_AWS_ID
 echo && read -p "enter AWS user name: " MY_AWS_USER
