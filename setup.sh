@@ -18,7 +18,7 @@ chmod 600 ~/.ssh/config
 
 echo
 echo Creating SSH keys for general usage
-echo && read -p "enter default EMAIL ADDRESS: " DEFAULT_EMAIL
+echo && read -p "enter email address for general usage: " DEFAULT_EMAIL
 DEFAULT_KEY=default_id_rsa
 ssh-keygen -f ~/.ssh/$DEFAULT_KEY -m PEM -t rsa -b 4096 -C $DEFAULT_EMAIL
 # openssl rsa -noout -text -in ~/.ssh/$DEFAULT_KEY
@@ -52,4 +52,6 @@ echo Under Account "=>" Settings
 echo SSH and GPG keys
 echo click New SSH key
 echo paste in public key
-open -a Safari https://github.com/$GITHUB_USER
+echo
+echo open -a Safari https://github.com/$GITHUB_USER
+echo
