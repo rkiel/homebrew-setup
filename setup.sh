@@ -42,9 +42,9 @@ git config --global user.email $GITHUB_EMAIL
 git config --global color.ui true
 git config --global push.default simple
 
-echo
-echo Saving GitHub public key to paste buffer
-cat ~/.ssh/$GITHUB_KEY.pub | pbcopy
+# echo
+# echo Saving GitHub public key to paste buffer
+# cat ~/.ssh/$GITHUB_KEY.pub | pbcopy
 
 echo
 echo "****************************"
@@ -56,7 +56,8 @@ echo click on SSH and GPG keys
 echo click New SSH key
 echo paste in public key
 echo
-echo Use the following command to get started:
+echo Use the following commands to get started:
 echo
 echo open -a Safari https://github.com/$GITHUB_USER
 echo
+echo cat ~/.ssh/$GITHUB_KEY.pub "|" pbcopy
