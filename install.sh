@@ -88,7 +88,7 @@ if [ ! -e $TOUCH ] ; then
     rm -rf ~/.bash_profile
     rm -rf ~/.profile
     rm -rf ~/.mkshrc
-    echo >  ~/.zlogin
+    rm -rf ~/.zlogin
     source ${MY_PROFILE}
     source ${MY_RC}
   else
@@ -250,15 +250,19 @@ fi
 TOUCH=$COMPLETED/atom-app.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
-  if [ -e ~/Downloads/atom-mac.zip ]; then
-    cd ~/Downloads && unzip atom-mac.zip
+  ls -l ~/Downloads
+  echo && read -p "enter Atom app: " VendorDMG
+  if [ ! -z "${VendorDMG}" ] ; then
+    # if [ -e ~/Downloads/atom-mac.zip ]; then
+    #   cd ~/Downloads && unzip atom-mac.zip
+    # fi
+    mv "$HOME/Downloads/${VendorDMG}" /Applications
+    cd /usr/local
+    sudo mkdir -p bin
+    cd /usr/local/bin
+    sudo ln -nfs "/Applications/${VendorDMG}/Contents/Resources/app/atom.sh" atom
+    sudo ln -nfs "/Applications/${VendorDMG}/Contents/Resources/app/apm/node_modules/.bin/apm" apm
   fi
-  mv ~/Downloads/Atom.app /Applications
-  cd /usr/local
-  sudo mkdir -p bin
-  cd /usr/local/bin
-  sudo ln -nfs /Applications/Atom.app/Contents/Resources/app/atom.sh atom
-  sudo ln -nfs /Applications/Atom.app/Contents/Resources/app/apm/node_modules/.bin/apm apm
   touch $TOUCH
 fi
 
@@ -285,9 +289,13 @@ fi
 TOUCH=$COMPLETED/vscode-app.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
-  cd ~/Downloads && unzip VSCode-darwin-stable.zip
-  VSCODE="Visual Studio Code"
-  mv ~/Downloads/"$VSCODE".app /Applications
+  #cd ~/Downloads && unzip VSCode-darwin-stable.zip
+  ls -l ~/Downloads
+  echo && read -p "enter VS Code app: " VendorDMG
+  if [ ! -z "${VendorDMG}" ] ; then
+#  VSCODE="Visual Studio Code"
+    mv "$HOME/Downloads/${VendorDMG}" /Applications
+  fi
   touch $TOUCH
 fi
 
