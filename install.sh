@@ -1,6 +1,8 @@
 export GITHUB_RKIEL="git@github.com:rkiel"
 export LOCAL_RKIEL=~/GitHub/rkiel
 
+mkdir -p /tmp/completed
+
 echo && read -p "enter SHELL (bash/zsh): " MY_SHELL
 if [ "${MY_SHELL}" == "zsh" ] ; then
   MY_PROFILE=~/.zprofile
@@ -14,7 +16,7 @@ else
   MY_BASH=/bin/bash
 fi
 
-TOUCH=completed/images-starter.txt
+TOUCH=/tmp/completed/images-starter.txt
 if [ ! -a $TOUCH ] ; then
   cd /Users/Shared
   rm -rf images-starter
@@ -22,7 +24,7 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/chrome-app.txt
+TOUCH=/tmp/completed/chrome-app.txt
 if [ ! -a $TOUCH ] ; then
   ls -l ~/Downloads
   echo && read -p "enter Google Chrome DMG: " VendorDMG
@@ -37,7 +39,7 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/firefox-app.txt
+TOUCH=/tmp/completed/firefox-app.txt
 if [ ! -a $TOUCH ] ; then
   ls -l ~/Downloads
   echo && read -p "enter Firefox DMG: " VendorDMG
@@ -52,13 +54,13 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/homebrew.txt
+TOUCH=/tmp/completed/homebrew.txt
 if [ ! -a $TOUCH ] ; then
   ${MY_BASH} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   touch $TOUCH
 fi
 
-TOUCH=completed/rvm.txt
+TOUCH=/tmp/completed/rvm.txt
 if [ ! -a $TOUCH ] ; then
   echo               > /tmp/rvm
   echo "##########" >> /tmp/rvm
@@ -76,7 +78,7 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/nvm.txt
+TOUCH=/tmp/completed/nvm.txt
 if [ ! -a $TOUCH ] ; then
   echo               > /tmp/nvm
   echo "##########" >> /tmp/nvm
@@ -95,7 +97,7 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/node-utilities.txt
+TOUCH=/tmp/completed/node-utilities.txt
 if [ ! -a $TOUCH ] ; then
   REPO="node-utilities"
   mkdir -p ${LOCAL_RKIEL} && cd $_
@@ -106,7 +108,7 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/python.txt
+TOUCH=/tmp/completed/python.txt
 if [ ! -a $TOUCH ] ; then
   brew install pyenv
   echo                                        > /tmp/python
@@ -126,7 +128,7 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/awscli.txt
+TOUCH=/tmp/completed/awscli.txt
 if [ ! -a $TOUCH ] ; then
   pyenv global $PYTHON_CURRENT
   pip3 install awscli --upgrade --user
@@ -136,7 +138,7 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/aws-utilities.txt
+TOUCH=/tmp/completed/aws-utilities.txt
 if [ ! -a $TOUCH ] ; then
   REPO="aws-utilities"
   mkdir -p ${LOCAL_RKIEL} && cd $_
@@ -147,7 +149,7 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/git-utilities.txt
+TOUCH=/tmp/completed/git-utilities.txt
 if [ ! -a $TOUCH ] ; then
   echo && read -p "enter FEATURE_USER: " FEATURE_USER
   REPO="git-utilities"
@@ -159,7 +161,7 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/vim-setup.txt
+TOUCH=/tmp/completed/vim-setup.txt
 if [ ! -a $TOUCH ] ; then
   REPO="vim-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
@@ -170,7 +172,7 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/atom-app.txt
+TOUCH=/tmp/completed/atom-app.txt
 if [ ! -a $TOUCH ] ; then
   cd ~/Downloads && unzip atom-mac.zip
   mv ~/Downloads/Atom.app /Applications
@@ -182,7 +184,7 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/atom-setup.txt
+TOUCH=/tmp/completed/atom-setup.txt
 if [ ! -a $TOUCH ] ; then
   REPO="atom-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
@@ -193,7 +195,7 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/vscode-app.txt
+TOUCH=/tmp/completed/vscode-app.txt
 if [ ! -a $TOUCH ] ; then
   cd ~/Downloads && unzip VSCode-darwin-stable.zip
   VSCODE="Visual Studio Code"
@@ -201,7 +203,7 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/vscode-setup.txt
+TOUCH=/tmp/completed/vscode-setup.txt
 if [ ! -a $TOUCH ] ; then
   REPO="vscode-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
@@ -212,7 +214,7 @@ if [ ! -a $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=completed/awssu.txt
+TOUCH=/tmp/completed/awssu.txt
 if [ ! -a $TOUCH ] ; then
   echo && read -p "enter AWS account id/name: " MY_AWS_ID
   echo && read -p "enter AWS user name: " MY_AWS_USER
