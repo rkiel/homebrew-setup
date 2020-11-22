@@ -62,6 +62,7 @@ if [ ! -e $TOUCH ] ; then
 fi
 
 TOUCH=$COMPLETED/homebrew.txt
+touch $TOUCH
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   ${MY_BASH} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -69,6 +70,7 @@ if [ ! -e $TOUCH ] ; then
 fi
 
 TOUCH=$COMPLETED/rvm.txt
+touch $TOUCH
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   echo               > /tmp/rvm
@@ -151,6 +153,7 @@ if [ ! -e $TOUCH ] ; then
 fi
 
 TOUCH=$COMPLETED/python.txt
+touch $TOUCH
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   brew install pyenv
@@ -176,11 +179,16 @@ fi
 TOUCH=$COMPLETED/awscli.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
-  pyenv global $PYTHON_CURRENT
-  pip3 install awscli --upgrade --user
-  echo 'export PATH=~/.local/bin:$PATH' >> ${MY_PROFILE}
-  source ${MY_PROFILE}
-  aws --version
+  PKG="AWSCLIV2.pkg"
+  AWSCLI="$HOME/Downloads/$PKG"
+  curl "https://awscli.amazonaws.com/$PKG" -o "$AWSCLI"
+  sudo installer -pkg $AWSCLI -target /
+  rm "$AWSCLI"
+  # pyenv global $PYTHON_CURRENT
+  # pip3 install awscli --upgrade --user
+  # echo 'export PATH=~/.local/bin:$PATH' >> ${MY_PROFILE}
+  # source ${MY_PROFILE}
+  # aws --version
   mkdir -p $SNAPSHOT/awscli
   cp ~/.[bz]* $SNAPSHOT/awscli
   touch $TOUCH
