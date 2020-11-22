@@ -187,7 +187,9 @@ fi
 TOUCH=/tmp/completed/atom-app.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
-  cd ~/Downloads && unzip atom-mac.zip
+  if [ -e ~/Downloads/atom-mac.zip ]; then
+    cd ~/Downloads && unzip atom-mac.zip
+  fi
   mv ~/Downloads/Atom.app /Applications
   cd /usr/local
   sudo mkdir -p bin
@@ -228,6 +230,10 @@ if [ ! -e $TOUCH ] ; then
   cd ${LOCAL_RKIEL}/${REPO}
   ./install/bin/setup ${MY_SHELL}
   touch $TOUCH
+fi
+
+if [ "${MY_SHELL}" == "zsh" ] ; then
+  sudo chmod -R 755 /usr/local/share/zsh
 fi
 
 TOUCH=/tmp/completed/awssu.txt
