@@ -18,6 +18,7 @@ fi
 
 TOUCH=/tmp/completed/images-starter.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   cd /Users/Shared
   rm -rf images-starter
   git clone $GITHUB_RKIEL/images-starter.git
@@ -26,6 +27,7 @@ fi
 
 TOUCH=/tmp/completed/chrome-app.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   ls -l ~/Downloads
   echo && read -p "enter Google Chrome DMG: " VendorDMG
   if [ ! -z "${VendorDMG}" ] ; then
@@ -41,6 +43,7 @@ fi
 
 TOUCH=/tmp/completed/firefox-app.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   ls -l ~/Downloads
   echo && read -p "enter Firefox DMG: " VendorDMG
   if [ ! -z "${VendorDMG}" ] ; then
@@ -56,19 +59,21 @@ fi
 
 TOUCH=/tmp/completed/homebrew.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   ${MY_BASH} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   touch $TOUCH
 fi
 
 TOUCH=/tmp/completed/rvm.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   echo               > /tmp/rvm
   echo "##########" >> /tmp/rvm
   echo "# RVM"      >> /tmp/rvm
   echo "##########" >> /tmp/rvm
   cat /tmp/rvm      >> ${MY_PROFILE}
   cat /tmp/rvm      >> ${MY_RC}
-  \curl -sSL https://get.rvm.io | ${MY_BIN} -s stable --autolibs=enable
+  \curl -sSL https://get.rvm.io | ${MY_BASH} -s stable --autolibs=enable
   source ${MY_RC}
   RUBY_CURRENT=2.7
   RUBY_PREVIOUS=2.6
@@ -80,12 +85,13 @@ fi
 
 TOUCH=/tmp/completed/nvm.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   echo               > /tmp/nvm
   echo "##########" >> /tmp/nvm
   echo "# NVM"      >> /tmp/nvm
   echo "##########" >> /tmp/nvm
   cat /tmp/nvm      >> ${MY_RC}
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | ${MY_BIN}
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | ${MY_BASH}
   source ${MY_RC}
   nvm ls-remote|grep Latest|grep LTS|grep Erbium
   echo && read -p "enter Node (current version): " NODE_CURRENT
@@ -99,6 +105,7 @@ fi
 
 TOUCH=/tmp/completed/node-utilities.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   REPO="node-utilities"
   mkdir -p ${LOCAL_RKIEL} && cd $_
   rm -rf ${REPO}
@@ -110,6 +117,7 @@ fi
 
 TOUCH=/tmp/completed/python.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   brew install pyenv
   echo                                        > /tmp/python
   echo "##########"                          >> /tmp/python
@@ -122,7 +130,7 @@ if [ ! -e $TOUCH ] ; then
   echo 'eval "$(pyenv init -)"'              >> ${MY_RC}
   source ${MY_PROFILE}
   source ${MY_RC}
-  PYTHON_CURRENT=3.9.0
+  PYTHON_CURRENT=3.8.0
   pyenv install $PYTHON_CURRENT
   pyenv global $PYTHON_CURRENT
   touch $TOUCH
@@ -130,6 +138,7 @@ fi
 
 TOUCH=/tmp/completed/awscli.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   pyenv global $PYTHON_CURRENT
   pip3 install awscli --upgrade --user
   echo 'export PATH=~/.local/bin:$PATH' >> ${MY_PROFILE}
@@ -140,6 +149,7 @@ fi
 
 TOUCH=/tmp/completed/aws-utilities.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   REPO="aws-utilities"
   mkdir -p ${LOCAL_RKIEL} && cd $_
   rm -rf ${REPO}
@@ -151,6 +161,7 @@ fi
 
 TOUCH=/tmp/completed/git-utilities.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   echo && read -p "enter FEATURE_USER: " FEATURE_USER
   REPO="git-utilities"
   mkdir -p ${LOCAL_RKIEL} && cd $_
@@ -163,6 +174,7 @@ fi
 
 TOUCH=/tmp/completed/vim-setup.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   REPO="vim-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
   rm -rf ${REPO}
@@ -174,6 +186,7 @@ fi
 
 TOUCH=/tmp/completed/atom-app.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   cd ~/Downloads && unzip atom-mac.zip
   mv ~/Downloads/Atom.app /Applications
   cd /usr/local
@@ -186,6 +199,7 @@ fi
 
 TOUCH=/tmp/completed/atom-setup.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   REPO="atom-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
   rm -rf ${REPO}
@@ -197,6 +211,7 @@ fi
 
 TOUCH=/tmp/completed/vscode-app.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   cd ~/Downloads && unzip VSCode-darwin-stable.zip
   VSCODE="Visual Studio Code"
   mv ~/Downloads/"$VSCODE".app /Applications
@@ -205,6 +220,7 @@ fi
 
 TOUCH=/tmp/completed/vscode-setup.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   REPO="vscode-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
   rm -rf ${REPO}
@@ -216,6 +232,7 @@ fi
 
 TOUCH=/tmp/completed/awssu.txt
 if [ ! -e $TOUCH ] ; then
+  puts "***** ${TOUCH} *****"
   echo && read -p "enter AWS account id/name: " MY_AWS_ID
   echo && read -p "enter AWS user name: " MY_AWS_USER
   echo && read -p "enter AWS region: " MY_AWS_REGION
