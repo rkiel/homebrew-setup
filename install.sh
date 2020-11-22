@@ -122,6 +122,9 @@ if [ ! -e $TOUCH ] ; then
   nvm install $NODE_CURRENT
   nvm install $NODE_PREVIOUS
   nvm alias default $NODE_PREVIOUS
+  if [ "${MY_SHELL}" == "zsh" ] ; then
+    sudo chmod -R 755 /usr/local/share/zsh
+  fi
   mkdir -p $SNAPSHOT/nvm
   cp ~/.[bz]* $SNAPSHOT/nvm
   touch $TOUCH
@@ -130,6 +133,12 @@ fi
 TOUCH=$COMPLETED/node-utilities.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
+  echo                     > /tmp/motd
+  echo "################" >> /tmp/motd
+  echo "# node-utilities" >> /tmp/motd
+  echo "################" >> /tmp/motd
+  cat /tmp/motd      >> ${MY_PROFILE}
+  cat /tmp/motd      >> ${MY_RC}
   REPO="node-utilities"
   mkdir -p ${LOCAL_RKIEL} && cd $_
   rm -rf ${REPO}
@@ -156,9 +165,11 @@ if [ ! -e $TOUCH ] ; then
   echo 'eval "$(pyenv init -)"'              >> ${MY_RC}
   source ${MY_PROFILE}
   source ${MY_RC}
-  PYTHON_CURRENT=3.8.0
+  PYTHON_CURRENT=3.9.0
   pyenv install $PYTHON_CURRENT
   pyenv global $PYTHON_CURRENT
+  mkdir -p $SNAPSHOT/python
+  cp ~/.[bz]* $SNAPSHOT/python
   touch $TOUCH
 fi
 
@@ -170,18 +181,28 @@ if [ ! -e $TOUCH ] ; then
   echo 'export PATH=~/.local/bin:$PATH' >> ${MY_PROFILE}
   source ${MY_PROFILE}
   aws --version
+  mkdir -p $SNAPSHOT/awscli
+  cp ~/.[bz]* $SNAPSHOT/awscli
   touch $TOUCH
 fi
 
 TOUCH=$COMPLETED/aws-utilities.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
+  echo                    > /tmp/motd
+  echo "###############" >> /tmp/motd
+  echo "# aws-utilities" >> /tmp/motd
+  echo "###############" >> /tmp/motd
+  cat /tmp/motd      >> ${MY_PROFILE}
+  cat /tmp/motd      >> ${MY_RC}
   REPO="aws-utilities"
   mkdir -p ${LOCAL_RKIEL} && cd $_
   rm -rf ${REPO}
   git clone ${GITHUB_RKIEL}/${REPO}.git
   cd ${LOCAL_RKIEL}/${REPO}
   ./install/bin/setup ${MY_SHELL}
+  mkdir -p $SNAPSHOT/aws-utilities
+  cp ~/.[bz]* $SNAPSHOT/aws-utilities
   touch $TOUCH
 fi
 
@@ -189,24 +210,40 @@ TOUCH=$COMPLETED/git-utilities.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   echo && read -p "enter FEATURE_USER: " FEATURE_USER
+  echo                    > /tmp/motd
+  echo "###############" >> /tmp/motd
+  echo "# git-utilities" >> /tmp/motd
+  echo "###############" >> /tmp/motd
+  cat /tmp/motd      >> ${MY_PROFILE}
+  cat /tmp/motd      >> ${MY_RC}
   REPO="git-utilities"
   mkdir -p ${LOCAL_RKIEL} && cd $_
   rm -rf ${REPO}
   git clone ${GITHUB_RKIEL}/${REPO}.git
   cd ${LOCAL_RKIEL}/${REPO}
   ./install/bin/setup ${FEATURE_USER} ${MY_SHELL}
+  mkdir -p $SNAPSHOT/git-utilities
+  cp ~/.[bz]* $SNAPSHOT/git-utilities
   touch $TOUCH
 fi
 
 TOUCH=$COMPLETED/vim-setup.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
+  echo                > /tmp/motd
+  echo "###########" >> /tmp/motd
+  echo "# vim-setup" >> /tmp/motd
+  echo "###########" >> /tmp/motd
+  cat /tmp/motd      >> ${MY_PROFILE}
+  cat /tmp/motd      >> ${MY_RC}
   REPO="vim-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
   rm -rf ${REPO}
   git clone ${GITHUB_RKIEL}/${REPO}.git
   cd ${LOCAL_RKIEL}/${REPO}
   ./install/bin/setup ${MY_SHELL}
+  mkdir -p $SNAPSHOT/vim-setup
+  cp ~/.[bz]* $SNAPSHOT/vim-setup
   touch $TOUCH
 fi
 
@@ -228,12 +265,20 @@ fi
 TOUCH=$COMPLETED/atom-setup.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
+  echo                 > /tmp/motd
+  echo "############" >> /tmp/motd
+  echo "# atom-setup" >> /tmp/motd
+  echo "############" >> /tmp/motd
+  cat /tmp/motd      >> ${MY_PROFILE}
+  cat /tmp/motd      >> ${MY_RC}
   REPO="atom-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
   rm -rf ${REPO}
   git clone ${GITHUB_RKIEL}/${REPO}.git
   cd ${LOCAL_RKIEL}/${REPO}
   ./install/bin/setup install
+  mkdir -p $SNAPSHOT/atom-setup
+  cp ~/.[bz]* $SNAPSHOT/atom-setup
   touch $TOUCH
 fi
 
@@ -249,12 +294,20 @@ fi
 TOUCH=$COMPLETED/vscode-setup.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
+  echo                 > /tmp/motd
+  echo "##############" >> /tmp/motd
+  echo "# vscode-setup" >> /tmp/motd
+  echo "##############" >> /tmp/motd
+  cat /tmp/motd      >> ${MY_PROFILE}
+  cat /tmp/motd      >> ${MY_RC}
   REPO="vscode-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
   rm -rf ${REPO}
   git clone ${GITHUB_RKIEL}/${REPO}.git
   cd ${LOCAL_RKIEL}/${REPO}
   ./install/bin/setup ${MY_SHELL}
+  mkdir -p $SNAPSHOT/vscode-setup
+  cp ~/.[bz]* $SNAPSHOT/vscode-setup
   touch $TOUCH
 fi
 
