@@ -82,6 +82,7 @@ if [ ! -e $TOUCH ] ; then
     echo '[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*' >> ${MY_PROFILE}
     rm -rf ~/.bashrc
     rm -rf ~/.bash_profile
+    rm -rf ~/.profile
     source ${MY_PROFILE}
     source ${MY_RC}
   else
