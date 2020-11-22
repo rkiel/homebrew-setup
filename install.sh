@@ -17,7 +17,7 @@ else
 fi
 
 TOUCH=/tmp/completed/images-starter.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   cd /Users/Shared
   rm -rf images-starter
   git clone $GITHUB_RKIEL/images-starter.git
@@ -25,7 +25,7 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/chrome-app.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   ls -l ~/Downloads
   echo && read -p "enter Google Chrome DMG: " VendorDMG
   if [ ! -z "${VendorDMG}" ] ; then
@@ -40,7 +40,7 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/firefox-app.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   ls -l ~/Downloads
   echo && read -p "enter Firefox DMG: " VendorDMG
   if [ ! -z "${VendorDMG}" ] ; then
@@ -55,13 +55,13 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/homebrew.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   ${MY_BASH} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   touch $TOUCH
 fi
 
 TOUCH=/tmp/completed/rvm.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   echo               > /tmp/rvm
   echo "##########" >> /tmp/rvm
   echo "# RVM"      >> /tmp/rvm
@@ -79,7 +79,7 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/nvm.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   echo               > /tmp/nvm
   echo "##########" >> /tmp/nvm
   echo "# NVM"      >> /tmp/nvm
@@ -98,7 +98,7 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/node-utilities.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   REPO="node-utilities"
   mkdir -p ${LOCAL_RKIEL} && cd $_
   rm -rf ${REPO}
@@ -109,7 +109,7 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/python.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   brew install pyenv
   echo                                        > /tmp/python
   echo "##########"                          >> /tmp/python
@@ -129,7 +129,7 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/awscli.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   pyenv global $PYTHON_CURRENT
   pip3 install awscli --upgrade --user
   echo 'export PATH=~/.local/bin:$PATH' >> ${MY_PROFILE}
@@ -139,7 +139,7 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/aws-utilities.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   REPO="aws-utilities"
   mkdir -p ${LOCAL_RKIEL} && cd $_
   rm -rf ${REPO}
@@ -150,7 +150,7 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/git-utilities.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   echo && read -p "enter FEATURE_USER: " FEATURE_USER
   REPO="git-utilities"
   mkdir -p ${LOCAL_RKIEL} && cd $_
@@ -162,7 +162,7 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/vim-setup.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   REPO="vim-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
   rm -rf ${REPO}
@@ -173,7 +173,7 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/atom-app.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   cd ~/Downloads && unzip atom-mac.zip
   mv ~/Downloads/Atom.app /Applications
   cd /usr/local
@@ -185,7 +185,7 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/atom-setup.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   REPO="atom-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
   rm -rf ${REPO}
@@ -196,7 +196,7 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/vscode-app.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   cd ~/Downloads && unzip VSCode-darwin-stable.zip
   VSCODE="Visual Studio Code"
   mv ~/Downloads/"$VSCODE".app /Applications
@@ -204,7 +204,7 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/vscode-setup.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   REPO="vscode-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
   rm -rf ${REPO}
@@ -215,7 +215,7 @@ if [ ! -a $TOUCH ] ; then
 fi
 
 TOUCH=/tmp/completed/awssu.txt
-if [ ! -a $TOUCH ] ; then
+if [ ! -e $TOUCH ] ; then
   echo && read -p "enter AWS account id/name: " MY_AWS_ID
   echo && read -p "enter AWS user name: " MY_AWS_USER
   echo && read -p "enter AWS region: " MY_AWS_REGION
