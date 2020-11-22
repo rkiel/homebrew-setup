@@ -1,7 +1,9 @@
 export GITHUB_RKIEL="git@github.com:rkiel"
 export LOCAL_RKIEL=~/GitHub/rkiel
 
-mkdir -p /tmp/completed
+SNAPSHOT=/tmp/snapshot
+COMPLETED=/tmp/completed
+mkdir -p $COMPLETED
 
 echo && read -p "enter SHELL (bash/zsh): " MY_SHELL
 if [ "${MY_SHELL}" == "zsh" ] ; then
@@ -16,16 +18,18 @@ else
   MY_BASH=/bin/bash
 fi
 
-TOUCH=/tmp/completed/images-starter.txt
+TOUCH=$COMPLETED/images-starter.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   cd /Users/Shared
   rm -rf images-starter
   git clone $GITHUB_RKIEL/images-starter.git
+  mkdir -p $SNAPSHOT/images-starter
+  cp ~/.[bz]* $SNAPSHOT/images-starter
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/chrome-app.txt
+TOUCH=$COMPLETED/chrome-app.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   ls -l ~/Downloads
@@ -41,7 +45,7 @@ if [ ! -e $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/firefox-app.txt
+TOUCH=$COMPLETED/firefox-app.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   ls -l ~/Downloads
@@ -57,14 +61,14 @@ if [ ! -e $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/homebrew.txt
+TOUCH=$COMPLETED/homebrew.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   ${MY_BASH} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/rvm.txt
+TOUCH=$COMPLETED/rvm.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   echo               > /tmp/rvm
@@ -83,6 +87,8 @@ if [ ! -e $TOUCH ] ; then
     rm -rf ~/.bashrc
     rm -rf ~/.bash_profile
     rm -rf ~/.profile
+    rm -rf ~/.mkshrc
+    echo >  ~/.zlogin
     source ${MY_PROFILE}
     source ${MY_RC}
   else
@@ -93,10 +99,13 @@ if [ ! -e $TOUCH ] ; then
   rvm install $RUBY_CURRENT
   rvm install $RUBY_PREVIOUS
   rvm --default use $RUBY_CURRENT
+
+  mkdir -p $SNAPSHOT/rvm
+  cp ~/.[bz]* $SNAPSHOT/rvm
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/nvm.txt
+TOUCH=$COMPLETED/nvm.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   echo               > /tmp/nvm
@@ -113,10 +122,12 @@ if [ ! -e $TOUCH ] ; then
   nvm install $NODE_CURRENT
   nvm install $NODE_PREVIOUS
   nvm alias default $NODE_PREVIOUS
+  mkdir -p $SNAPSHOT/nvm
+  cp ~/.[bz]* $SNAPSHOT/nvm
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/node-utilities.txt
+TOUCH=$COMPLETED/node-utilities.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   REPO="node-utilities"
@@ -125,10 +136,12 @@ if [ ! -e $TOUCH ] ; then
   git clone ${GITHUB_RKIEL}/${REPO}.git
   cd ${LOCAL_RKIEL}/${REPO}
   ./install/bin/setup ${MY_SHELL}
+  mkdir -p $SNAPSHOT/node-utilities
+  cp ~/.[bz]* $SNAPSHOT/node-utilities
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/python.txt
+TOUCH=$COMPLETED/python.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   brew install pyenv
@@ -149,7 +162,7 @@ if [ ! -e $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/awscli.txt
+TOUCH=$COMPLETED/awscli.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   pyenv global $PYTHON_CURRENT
@@ -160,7 +173,7 @@ if [ ! -e $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/aws-utilities.txt
+TOUCH=$COMPLETED/aws-utilities.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   REPO="aws-utilities"
@@ -172,7 +185,7 @@ if [ ! -e $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/git-utilities.txt
+TOUCH=$COMPLETED/git-utilities.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   echo && read -p "enter FEATURE_USER: " FEATURE_USER
@@ -185,7 +198,7 @@ if [ ! -e $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/vim-setup.txt
+TOUCH=$COMPLETED/vim-setup.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   REPO="vim-setup"
@@ -197,7 +210,7 @@ if [ ! -e $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/atom-app.txt
+TOUCH=$COMPLETED/atom-app.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   if [ -e ~/Downloads/atom-mac.zip ]; then
@@ -212,7 +225,7 @@ if [ ! -e $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/atom-setup.txt
+TOUCH=$COMPLETED/atom-setup.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   REPO="atom-setup"
@@ -224,7 +237,7 @@ if [ ! -e $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/vscode-app.txt
+TOUCH=$COMPLETED/vscode-app.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   cd ~/Downloads && unzip VSCode-darwin-stable.zip
@@ -233,7 +246,7 @@ if [ ! -e $TOUCH ] ; then
   touch $TOUCH
 fi
 
-TOUCH=/tmp/completed/vscode-setup.txt
+TOUCH=$COMPLETED/vscode-setup.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   REPO="vscode-setup"
@@ -249,7 +262,7 @@ if [ "${MY_SHELL}" == "zsh" ] ; then
   sudo chmod -R 755 /usr/local/share/zsh
 fi
 
-TOUCH=/tmp/completed/awssu.txt
+TOUCH=$COMPLETED/awssu.txt
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   echo && read -p "enter AWS account id/name: " MY_AWS_ID
