@@ -74,17 +74,24 @@ if [ ! -e $TOUCH ] ; then
   cat /tmp/rvm      >> ${MY_PROFILE}
   cat /tmp/rvm      >> ${MY_RC}
   \curl -sSL https://get.rvm.io | ${MY_BASH} -s stable --autolibs=enable
-  source ${MY_RC}
+  if [ "${MY_SHELL}" == "zsh" ] ; then
+    echo >> ${MY_RC}
+    echo "# Add RVM to PATH for scripting. Make sure this is the last PATH variable change." >> ${MY_RC}
+    echo 'export PATH="$PATH:$HOME/.rvm/bin"' >> ${MY_RC}
+    echo >> ${MY_PROFILE}
+    echo '[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*' >> ${MY_PROFILE}
+    rm -rf ~/.bashrc
+    rm -rf ~/.bash_profile
+    source ${MY_PROFILE}
+    source ${MY_RC}
+  else
+    source ${MY_RC}
+  fi
   RUBY_CURRENT=2.7
   RUBY_PREVIOUS=2.6
   rvm install $RUBY_CURRENT
   rvm install $RUBY_PREVIOUS
   rvm --default use $RUBY_CURRENT
-  # bashrc
-  # # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
-# profile
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
   touch $TOUCH
 fi
 
