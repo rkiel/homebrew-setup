@@ -18,7 +18,7 @@ fi
 
 TOUCH=/tmp/completed/images-starter.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   cd /Users/Shared
   rm -rf images-starter
   git clone $GITHUB_RKIEL/images-starter.git
@@ -27,7 +27,7 @@ fi
 
 TOUCH=/tmp/completed/chrome-app.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   ls -l ~/Downloads
   echo && read -p "enter Google Chrome DMG: " VendorDMG
   if [ ! -z "${VendorDMG}" ] ; then
@@ -43,7 +43,7 @@ fi
 
 TOUCH=/tmp/completed/firefox-app.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   ls -l ~/Downloads
   echo && read -p "enter Firefox DMG: " VendorDMG
   if [ ! -z "${VendorDMG}" ] ; then
@@ -59,14 +59,14 @@ fi
 
 TOUCH=/tmp/completed/homebrew.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   ${MY_BASH} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   touch $TOUCH
 fi
 
 TOUCH=/tmp/completed/rvm.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   echo               > /tmp/rvm
   echo "##########" >> /tmp/rvm
   echo "# RVM"      >> /tmp/rvm
@@ -85,7 +85,7 @@ fi
 
 TOUCH=/tmp/completed/nvm.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   echo               > /tmp/nvm
   echo "##########" >> /tmp/nvm
   echo "# NVM"      >> /tmp/nvm
@@ -105,7 +105,7 @@ fi
 
 TOUCH=/tmp/completed/node-utilities.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   REPO="node-utilities"
   mkdir -p ${LOCAL_RKIEL} && cd $_
   rm -rf ${REPO}
@@ -117,7 +117,7 @@ fi
 
 TOUCH=/tmp/completed/python.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   brew install pyenv
   echo                                        > /tmp/python
   echo "##########"                          >> /tmp/python
@@ -138,7 +138,7 @@ fi
 
 TOUCH=/tmp/completed/awscli.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   pyenv global $PYTHON_CURRENT
   pip3 install awscli --upgrade --user
   echo 'export PATH=~/.local/bin:$PATH' >> ${MY_PROFILE}
@@ -149,7 +149,7 @@ fi
 
 TOUCH=/tmp/completed/aws-utilities.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   REPO="aws-utilities"
   mkdir -p ${LOCAL_RKIEL} && cd $_
   rm -rf ${REPO}
@@ -161,7 +161,7 @@ fi
 
 TOUCH=/tmp/completed/git-utilities.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   echo && read -p "enter FEATURE_USER: " FEATURE_USER
   REPO="git-utilities"
   mkdir -p ${LOCAL_RKIEL} && cd $_
@@ -174,7 +174,7 @@ fi
 
 TOUCH=/tmp/completed/vim-setup.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   REPO="vim-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
   rm -rf ${REPO}
@@ -186,7 +186,7 @@ fi
 
 TOUCH=/tmp/completed/atom-app.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   cd ~/Downloads && unzip atom-mac.zip
   mv ~/Downloads/Atom.app /Applications
   cd /usr/local
@@ -199,7 +199,7 @@ fi
 
 TOUCH=/tmp/completed/atom-setup.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   REPO="atom-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
   rm -rf ${REPO}
@@ -211,7 +211,7 @@ fi
 
 TOUCH=/tmp/completed/vscode-app.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   cd ~/Downloads && unzip VSCode-darwin-stable.zip
   VSCODE="Visual Studio Code"
   mv ~/Downloads/"$VSCODE".app /Applications
@@ -220,7 +220,7 @@ fi
 
 TOUCH=/tmp/completed/vscode-setup.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   REPO="vscode-setup"
   mkdir -p $LOCAL_RKIEL && cd $_
   rm -rf ${REPO}
@@ -232,7 +232,7 @@ fi
 
 TOUCH=/tmp/completed/awssu.txt
 if [ ! -e $TOUCH ] ; then
-  puts "***** ${TOUCH} *****"
+  echo "***** ${TOUCH} *****"
   echo && read -p "enter AWS account id/name: " MY_AWS_ID
   echo && read -p "enter AWS user name: " MY_AWS_USER
   echo && read -p "enter AWS region: " MY_AWS_REGION
