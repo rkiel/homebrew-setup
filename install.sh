@@ -124,9 +124,9 @@ if [ ! -e $TOUCH ] ; then
   nvm install $NODE_CURRENT
   nvm install $NODE_PREVIOUS
   nvm alias default $NODE_PREVIOUS
-  if [ "${MY_SHELL}" == "zsh" ] ; then
-    sudo chmod -R 755 /usr/local/share/zsh
-  fi
+  # if [ "${MY_SHELL}" == "zsh" ] ; then
+  #   sudo chmod -R 755 /usr/local/share/zsh
+  # fi
   mkdir -p $SNAPSHOT/nvm
   cp ~/.[bz]* $SNAPSHOT/nvm
   touch $TOUCH
@@ -327,9 +327,9 @@ if [ ! -e $TOUCH ] ; then
   touch $TOUCH
 fi
 
-if [ "${MY_SHELL}" == "zsh" ] ; then
-  sudo chmod -R 755 /usr/local/share/zsh
-fi
+# if [ "${MY_SHELL}" == "zsh" ] ; then
+#   sudo chmod -R 755 /usr/local/share/zsh
+# fi
 
 TOUCH=$COMPLETED/awssu.txt
 if [ ! -e $TOUCH ] ; then
