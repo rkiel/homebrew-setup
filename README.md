@@ -53,3 +53,7 @@ cd macos-updates
 - [Automatically add SSH keys to SSH agent with GNOME and macOS](https://www.michelebologna.net/2018/automatically-add-ssh-keys-to-ssh-agent-running-in-gnome-and-macos/)
 - [How to manage multiple GitHub accounts on a single machine with SSH keys](https://www.freecodecamp.org/news/manage-multiple-github-accounts-the-ssh-way-2dadc30ccaca/)
 - [Multiple SSH Keys settings for different github account](https://gist.github.com/jexchan/2351996)
+
+### Chrome
+
+- [Install latest version of Google Chrome without re-packaging](https://www.jamf.com/jamf-nation/discussions/20894/install-latest-version-of-google-chrome-without-re-packaging)
