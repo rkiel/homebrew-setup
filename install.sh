@@ -25,7 +25,7 @@ if [ ! -e $TOUCH ] ; then
   rm -rf images-starter
   git clone $GITHUB_RKIEL/images-starter.git
   mkdir -p $SNAPSHOT/images-starter
-  cp ~/.[bz]* $SNAPSHOT/images-starter
+  cp -R ~/.[bz]* $SNAPSHOT/images-starter
   touch $TOUCH
 fi
 
@@ -103,7 +103,7 @@ if [ ! -e $TOUCH ] ; then
   rvm --default use $RUBY_CURRENT
 
   mkdir -p $SNAPSHOT/rvm
-  cp ~/.[bz]* $SNAPSHOT/rvm
+  cp -R ~/.[bz]* $SNAPSHOT/rvm
   touch $TOUCH
 fi
 
@@ -128,7 +128,7 @@ if [ ! -e $TOUCH ] ; then
   #   sudo chmod -R 755 /usr/local/share/zsh
   # fi
   mkdir -p $SNAPSHOT/nvm
-  cp ~/.[bz]* $SNAPSHOT/nvm
+  cp -R ~/.[bz]* $SNAPSHOT/nvm
   touch $TOUCH
 fi
 
@@ -148,7 +148,7 @@ if [ ! -e $TOUCH ] ; then
   cd ${LOCAL_RKIEL}/${REPO}
   ./install/bin/setup ${MY_SHELL}
   mkdir -p $SNAPSHOT/node-utilities
-  cp ~/.[bz]* $SNAPSHOT/node-utilities
+  cp -R ~/.[bz]* $SNAPSHOT/node-utilities
   touch $TOUCH
 fi
 
@@ -172,7 +172,7 @@ if [ ! -e $TOUCH ] ; then
   pyenv install $PYTHON_CURRENT
   pyenv global $PYTHON_CURRENT
   mkdir -p $SNAPSHOT/python
-  cp ~/.[bz]* $SNAPSHOT/python
+  cp -R ~/.[bz]* $SNAPSHOT/python
   touch $TOUCH
 fi
 
@@ -190,7 +190,7 @@ if [ ! -e $TOUCH ] ; then
   # source ${MY_PROFILE}
   # aws --version
   mkdir -p $SNAPSHOT/awscli
-  cp ~/.[bz]* $SNAPSHOT/awscli
+  cp -R ~/.[bz]* $SNAPSHOT/awscli
   touch $TOUCH
 fi
 
@@ -210,7 +210,7 @@ if [ ! -e $TOUCH ] ; then
   cd ${LOCAL_RKIEL}/${REPO}
   ./install/bin/setup ${MY_SHELL}
   mkdir -p $SNAPSHOT/aws-utilities
-  cp ~/.[bz]* $SNAPSHOT/aws-utilities
+  cp -R ~/.[bz]* $SNAPSHOT/aws-utilities
   touch $TOUCH
 fi
 
@@ -231,7 +231,7 @@ if [ ! -e $TOUCH ] ; then
   cd ${LOCAL_RKIEL}/${REPO}
   ./install/bin/setup ${FEATURE_USER} ${MY_SHELL}
   mkdir -p $SNAPSHOT/git-utilities
-  cp ~/.[bz]* $SNAPSHOT/git-utilities
+  cp -R ~/.[bz]* $SNAPSHOT/git-utilities
   touch $TOUCH
 fi
 
@@ -251,7 +251,7 @@ if [ ! -e $TOUCH ] ; then
   cd ${LOCAL_RKIEL}/${REPO}
   ./install/bin/setup ${MY_SHELL}
   mkdir -p $SNAPSHOT/vim-setup
-  cp ~/.[bz]* $SNAPSHOT/vim-setup
+  cp -R ~/.[bz]* $SNAPSHOT/vim-setup
   touch $TOUCH
 fi
 
@@ -290,7 +290,7 @@ if [ ! -e $TOUCH ] ; then
   cd ${LOCAL_RKIEL}/${REPO}
   ./install/bin/setup install
   mkdir -p $SNAPSHOT/atom-setup
-  cp ~/.[bz]* $SNAPSHOT/atom-setup
+  cp -R ~/.[bz]* $SNAPSHOT/atom-setup
   touch $TOUCH
 fi
 
@@ -323,7 +323,7 @@ if [ ! -e $TOUCH ] ; then
   cd ${LOCAL_RKIEL}/${REPO}
   ./install/bin/setup ${MY_SHELL}
   mkdir -p $SNAPSHOT/vscode-setup
-  cp ~/.[bz]* $SNAPSHOT/vscode-setup
+  cp -R ~/.[bz]* $SNAPSHOT/vscode-setup
   touch $TOUCH
 fi
 

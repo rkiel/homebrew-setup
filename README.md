@@ -26,6 +26,8 @@ xcode-select --install
 
 ### Download
 
+Clone this project
+
 ```bash
 git clone https://github.com/rkiel/macos-updates.git
 cd macos-updates
@@ -33,11 +35,19 @@ cd macos-updates
 
 ### Setup
 
+* create SSH keys
+* configure git
+* configure GitHub
+
 ```bash
 ./setup.sh
 ```
 
 ### Install
+
+* install bash/zsh
+* clone repositories
+* install languages, browsers and IDEs
 
 ```bash
 ./install.sh
