@@ -62,7 +62,7 @@ if [ ! -e $TOUCH ] ; then
 fi
 
 TOUCH=$COMPLETED/homebrew.txt
-touch $TOUCH
+touch $TOUCH # skip homebrew for now
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   ${MY_BASH} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -70,7 +70,7 @@ if [ ! -e $TOUCH ] ; then
 fi
 
 TOUCH=$COMPLETED/rvm.txt
-touch $TOUCH
+touch $TOUCH # skip RVM for now
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   echo               > /tmp/rvm
@@ -153,7 +153,7 @@ if [ ! -e $TOUCH ] ; then
 fi
 
 TOUCH=$COMPLETED/python.txt
-touch $TOUCH
+touch $TOUCH # skip Python for now
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   brew install pyenv

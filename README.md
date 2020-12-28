@@ -53,6 +53,23 @@ cd macos-updates
 ./install.sh
 ```
 
+### Cleanup
+
+
+When testing of dot files is complete.
+
+```bash
+rm -rf /tmp/snapshot
+```
+
+When everything has been successfully installed.
+
+```bash
+cd
+rm -rf ~/macos-updates
+rm -rf /tmp/completed
+```
+
 ## Resources
 
 ### SSH
