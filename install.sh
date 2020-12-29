@@ -332,6 +332,7 @@ fi
 # fi
 
 TOUCH=$COMPLETED/awssu.txt
+touch $TOUCH # skip for now
 if [ ! -e $TOUCH ] ; then
   echo "***** ${TOUCH} *****"
   echo && read -p "enter AWS account id/name: " MY_AWS_ID
@@ -345,3 +346,11 @@ if [ ! -e $TOUCH ] ; then
   awssu safe
   touch $TOUCH
 fi
+
+echo
+echo "************************************"
+echo "ACTION REQUIRED: continue with setup"
+echo "************************************"
+echo
+echo open -a Safari https://github.com/rkiel/macOS-setup
+echo
