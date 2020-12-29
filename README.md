@@ -6,6 +6,9 @@
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [1Password](https://1password.com/downloads/mac/)
 * [Spotify](https://www.spotify.com/us/download/mac/)
+* [OpenVPN](https://openvpn.net/download-open-vpn/)
+* [Avast](https://www.avast.com/en-us/free-mac-security)
+* [Zoom](https://zoom.us/download#client_4meeting)
 
 ### Install Xcode
 

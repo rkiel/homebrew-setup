@@ -366,7 +366,7 @@ if [ ! -e $TOUCH ] ; then
   echo && read -p "enter Spotify app: " VendorDMG
   if [ ! -z "${VendorDMG}" ] ; then
     open ~/Downloads/"$VendorDMG"
-    rm -rf ~/Downloads/"$VendorDMG"
+#    rm -rf ~/Downloads/"$VendorDMG"
   fi
   touch $TOUCH
 fi
