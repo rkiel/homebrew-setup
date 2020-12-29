@@ -1,22 +1,11 @@
-### Chrome
+### Downloads
 
-Download and install Chrome.
-
-[Google Chrome](http://www.google.com/chrome/)
-
-### Firefox
-
-Download and install Firefox.
-
-[Firefox](https://www.mozilla.org/en-US/firefox/)
-
-### Atom
-
-[Atom](https://atom.io/)
-
-### Visual Studio Code
-
-[Visual Studio Code](https://code.visualstudio.com/)
+* [Google Chrome](http://www.google.com/chrome/)
+* [Firefox](https://www.mozilla.org/en-US/firefox/)
+* [Atom](https://atom.io/)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [1Password](https://1password.com/downloads/mac/)
+* [Spotify](https://www.spotify.com/us/download/mac/)
 
 ### Install Xcode
 

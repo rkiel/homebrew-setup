@@ -347,6 +347,30 @@ if [ ! -e $TOUCH ] ; then
   touch $TOUCH
 fi
 
+TOUCH=$COMPLETED/1password.txt
+if [ ! -e $TOUCH ] ; then
+  echo "***** ${TOUCH} *****"
+  ls -l ~/Downloads
+  echo && read -p "enter 1Password pkg: " VendorDMG
+  if [ ! -z "${VendorDMG}" ] ; then
+    sudo installer -pkg ~/Downloads/"$VendorDMG" -target /Applications
+    rm -rf ~/Downloads/"$VendorDMG"
+  fi
+  touch $TOUCH
+fi
+
+TOUCH=$COMPLETED/spotify.txt
+if [ ! -e $TOUCH ] ; then
+  echo "***** ${TOUCH} *****"
+  ls -l ~/Downloads
+  echo && read -p "enter Spotify app: " VendorDMG
+  if [ ! -z "${VendorDMG}" ] ; then
+    open ~/Downloads/"$VendorDMG"
+    rm -rf ~/Downloads/"$VendorDMG"
+  fi
+  touch $TOUCH
+fi
+
 echo
 echo "************************************"
 echo "ACTION REQUIRED: continue with setup"
